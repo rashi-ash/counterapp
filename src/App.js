@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Counter from './Components/counter';
 
 function App() {
+  const [count, setCount] = useState(0)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App"  >
+      <div class="container ">
+      <button type="button" class="btn btn-outline-success mx-3 " onClick={
+        ()=>{
+          setCount(count+1);
+          console.log(count)
+        }
+      }><i class="fa fa-plus mx-2" aria-hidden="true"> </i>Addition</button>
+      <button type="button" class="btn btn-outline-danger" onClick={
+        ()=>{
+          setCount(count-1);
+          console.log(count)
+        }
+      }><i class="fa fa-minus mx-2" aria-hidden="true"> </i>subtract</button>
+      {/* <h1>Counter:{count}</h1> */}
+      <Counter  count={count}/>
+      {/* props */}
+      </div>
     </div>
   );
 }
